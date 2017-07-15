@@ -19,8 +19,10 @@ class _Singleton(type):
     _instances = {}
 
     @classmethod
-    def _get_instance_id(cls, host=DEFAULT_HOST, port=DEFAULT_PORT,
-                         table_prefix=None, table_prefix_separator='_'):
+    def _get_instance_id(cls, host=DEFAULT_HOST, port=DEFAULT_PORT, timeout=None,
+                 autoconnect=True, table_prefix=None,
+                 table_prefix_separator='_', compat=DEFAULT_COMPAT,
+                 transport=DEFAULT_TRANSPORT):
         if table_prefix:
             table_prefix += table_prefix_separator
         else:
